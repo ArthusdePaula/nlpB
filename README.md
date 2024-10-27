@@ -6,12 +6,15 @@ Projeto pessoal com o objetivo de aplicar técnicas de Processamento de Linguage
 # 1. Preparação do Ambiente e Carregamento dos Dados
 Técnicas Utilizadas:
 Linguagem de Programação: Python Bibliotecas: pandas, nltk, spacy, gensim, scikit-learn, matplotlib, seaborn, networkx, entre outras 
-Motivação: Configurar um ambiente adequado para manipular e analisar dados textuais. Carregar o texto da Bíblia em um formato estruturado para facilitar o processamento. Implementação:
-Montei o Google Drive para acessar os arquivos. Instalei as bibliotecas necessárias. Carreguei o texto da Bíblia em formato JSON e o organizei em um DataFrame do pandas, contendo colunas como book_name, chapter, verse e text.
+
+Motivação: Configurar um ambiente adequado para manipular e analisar dados textuais. Carregar o texto da Bíblia em um formato estruturado para facilitar o processamento. 
+
+Implementação:Montei o Google Drive para acessar os arquivos. Instalei as bibliotecas necessárias. Carreguei o texto da Bíblia em formato JSON e o organizei em um DataFrame do pandas, contendo colunas como book_name, chapter, verse e text.
 
 # 2. Pré-processamento do Texto
 Técnicas Utilizadas:
 Lematização: Utilizei o spaCy para reduzir palavras às suas formas básicas. Remoção de Stop Words e Pontuação: Com o NLTK e spaCy. Normalização do Texto: Convertemos todo o texto para letras minúsculas.
+
 Motivação: Padronizar o texto para facilitar as análises posteriores. Reduzir a dimensionalidade dos dados, removendo palavras comuns que não agregam muito significado. Implementação:
 Defini uma função preprocess_text para aplicar as etapas de pré-processamento. Criei uma nova coluna clean_text no DataFrame com o texto pré-processado.
 
@@ -19,26 +22,32 @@ Defini uma função preprocess_text para aplicar as etapas de pré-processamento
 ## 3.1 Contagem das Palavras Mais Frequentes
 Técnicas Utilizadas:
 Contagem de Frequências: Usei a classe Counter do módulo collections. 
+
 Motivação: Identificar as palavras mais frequentes para entender os temas centrais do texto. Detectar possíveis ruídos ou necessidades adicionais de limpeza. Implementação:
 Criei uma função get_word_frequencies para calcular a frequência das palavras. Calculei e exibi as palavras mais frequentes por livro e no total.
 
 ## 3.2 Visualização das Palavras Mais Frequentes
 Técnicas Utilizadas:
 Gráficos de Barras: Utilizei o matplotlib e seaborn. 
+
 Motivação: Visualizar de forma intuitiva a distribuição das palavras. Facilitar a comparação entre diferentes livros ou seções. Implementação:
 Plotei gráficos das palavras mais frequentes no total e por livro. Salvei os gráficos para análise posterior.
 
 # 4. Modelagem de Tópicos
 Técnicas Utilizadas:
 Latent Dirichlet Allocation (LDA): Com a biblioteca gensim.
-Motivação: Identificar tópicos subjacentes presentes no texto. Agrupar documentos (capítulos ou versículos) com base em similaridades temáticas. Implementação:
-Preparei os textos como listas de tokens. Criei um dicionário e um corpus para o LDA. Treinei o modelo LDA definindo o número de tópicos. Atribuí tópicos dominantes aos documentos.
+
+Motivação: Identificar tópicos subjacentes presentes no texto. Agrupar documentos (capítulos ou versículos) com base em similaridades temáticas. 
+
+Implementação: Preparei os textos como listas de tokens. Criei um dicionário e um corpus para o LDA. Treinei o modelo LDA definindo o número de tópicos. Atribuí tópicos dominantes aos documentos.
 
 # 5. Geração de Resumos
 Técnicas Utilizadas:
 Sumarização Automática: Usei o LexRankSummarizer da biblioteca sumy.
-Motivação: Criar resumos concisos dos livros para captar os principais pontos. Auxiliar na compreensão geral do conteúdo sem a necessidade de ler todo o texto. Implementação:
-Concatenei o texto de cada livro. Utilizei o LexRankSummarizer para gerar resumos com um número definido de sentenças.
+
+Motivação: Criar resumos concisos dos livros para captar os principais pontos. Auxiliar na compreensão geral do conteúdo sem a necessidade de ler todo o texto. 
+
+Implementação: Concatenei o texto de cada livro. Utilizei o LexRankSummarizer para gerar resumos com um número definido de sentenças.
 
 # 6. Treinamento de Embeddings de Palavras
 Técnicas Utilizadas:
